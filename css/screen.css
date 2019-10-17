@@ -8,7 +8,8 @@
 
 :root {
     /* colors */
-
+    --color-front:#0F3557;
+    --color-back:#CCE7FF;
     /* opacity */
 
     /* transitions */
@@ -27,12 +28,18 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family:'Work Sans',  sans-serif;
     box-sizing: border-box;
+    color:var(--color-front) ;
+    background:var(--color-back);
+    font-feature-settings: "zero" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+body{
+    height: 100vh;
+    display: flex;
+}
 *,
 *:before,
 *:after {
@@ -249,7 +256,9 @@ input::placeholder {
 */
 
 .c-logo {
-
+    font-size: 16px;
+    display: flex;
+    align-items: center;
 }
 
 /*
@@ -258,8 +267,10 @@ input::placeholder {
     The sun
 */
 
-.c-sun {
-
+.c-sun{
+    height: 22px;
+    width: 22px;
+    margin: 8px;
 }
 
 .c-logo .c-sun {
@@ -271,13 +282,52 @@ input::placeholder {
     ---
     Main app wrapper
 */
+.c-app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    margin: 0 auto;
+}
+.c-app__summary{
+    font-size: 28px;
+}
+.c-app--bottom{
+    
+}
 
 /*
     Component: Horizon
     ---
     Horizon with sun visualisation
 */
+.c-horizon__sky-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
 
+.c-horizon__sky {
+    position: relative;
+    height: 100%;
+}
+.c-horizon__line{
+    border-top: 1px solid var(--color-front);
+    display: flex;
+    justify-content: space-between;
+}
+.c-horizon__sun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+}
+.c-horizon__sun::before{
+    content: attr(data-time)
+
+}
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
@@ -286,6 +336,9 @@ input::placeholder {
     Utilities: Mute
     Mute with opacity
 */
+.u-muted{
+    opacity: 0.6;
+}
 
 /*------------------------------------*\
 #STATES
